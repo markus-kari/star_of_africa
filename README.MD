@@ -9,7 +9,7 @@ As the game is text-based, the project also includes a picture of the gameboard,
 
 ## Install
 Using pip:
-    pip install star_of_africa@git+TODO
+    pip install star_of_africa@git+https://github.com/markus-kari/star_of_africa
 and you're good to go!
 
 ## Usage
@@ -37,4 +37,6 @@ Please note: the games are not random per se, as each game will have a seed assi
 Created by Markus Kari, 2024.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/) _However_, remember that the Star of Africa as a board game is a licensed product, and the author claims no ownership over the board game. That means also that for any commercial products based on this work a permission should be asked, likely from Kari Mannerla's heirs. 
+[MIT](https://choosealicense.com/licenses/mit/) 
+
+_However_, remember that the Star of Africa as a board game is a licensed product, and the author claims no ownership over the board game. That means also that for any commercial products based on this work a permission should be asked, likely from Kari Mannerla's heirs. 
