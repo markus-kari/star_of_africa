@@ -315,92 +315,92 @@ def closest_tokens(unflipped, poor):
 
 
 dist_gol = [
-    18,
-    11,
-    13,
-    13,
-    7,
-    20,
-    11,
-    18,
-    14,
-    0,
-    20,
-    9,
-    15,
+    23,
     16,
+    18,
+    np.inf,
     17,
-    11,
-    19,
-    5,
-    4,
-    16,
-    20,
-    15,
-    24,
-    4,
-    16,
-    20,
-    19,
-    8,
-    16,
-    12,
-    18,
-    16,
-    17,
-    2,
-    7,
-    19,
-    15,
-    16,
-    21,
-    7,
-    3,
-    15,
-]
-dist_tow = [
-    20,
-    18,
-    19,
     25,
-    9,
-    14,
-    18,
-    11,
-    21,
     16,
-    19,
-    12,
-    17,
     28,
-    11,
-    13,
+    19,
+    0,
+    26,
+    14,
+    20,
+    17,
     26,
     21,
-    14,
-    10,
-    8,
     22,
-    12,
-    19,
-    0,
-    27,
-    30,
+    5,
+    9,
+    np.inf,
+    np.inf,
     20,
+    np.inf,
+    4,
+    36,
+    25,
+    24,
+    9,
+    28,
+    32,
+    23,
+    19,
+    18,
+    2,
+    12,
+    24,
+    25,
+    26,
+    np.inf,
+    np.inf,
+    np.inf,
+    np.inf,
+]
+dist_tow = [
+    22,
+    27,
+    21,
+    np.inf,
+    19,
+    16,
+    23,
+    11,
+    26,
+    36,
+    22,
+    22,
+    19,
+    36,
+    13,
+    23,
+    31,
+    37,
+    27,
+    np.inf,
+    np.inf,
+    25,
+    np.inf,
+    32,
+    0,
+    32,
+    35,
+    41,
     8,
     4,
-    25,
-    28,
-    29,
-    18,
-    14,
-    13,
+    30,
+    36,
+    35,
+    34,
+    24,
+    15,
     11,
     10,
-    28,
-    19,
-    13,
-    2,
+    np.inf,
+    np.inf,
+    np.inf,
+    np.inf,
 ]
 
 
@@ -410,7 +410,9 @@ def expected(n):
     if n < 1:
         return 0
     return (
-        1/6 * (
+        1
+        / 6
+        * (
             expected(n - 1)
             + expected(n - 2)
             + expected(n - 3)
@@ -529,6 +531,7 @@ def expected_time(money):
         visited[current] = True
     return {abbs[x]: (dist[x], travel_way[x], chain[x]) for x in range(42)}
 
+
 def locstr(location, offshore, unflipped):
     """Returns a string which describes the location."""
     loc = re.split(r"-", location)
@@ -551,12 +554,16 @@ def locstr(location, offshore, unflipped):
         elif loc[0] == "nd3":
             cities = "Lake Victoria, Daressalam and Mozambique"
         elif loc[0] == "nd4":
-            return ("the northeastern crossroads between Mozambique, " +
-                "Dragon Mountains and Victoria Falls")
+            return (
+                "the northeastern crossroads between Mozambique, "
+                + "Dragon Mountains and Victoria Falls"
+            )
         # node 5
         else:
-            return ("the southwestern crossroads between Mozambique, " +
-                "Dragon Mountains and Victoria Falls")
+            return (
+                "the southwestern crossroads between Mozambique, "
+                + "Dragon Mountains and Victoria Falls"
+            )
         return f"the crossroads between {cities}"
 
     # in one of the crossroads on the sea
@@ -615,8 +622,10 @@ def locstr(location, offshore, unflipped):
             return f"{loc[2]} step(s) {direction} of {abb_to_full[other]} by sea"
 
         # no crossroads involved
-        return (f"{loc[3]} step(s) to {abb_to_full[loc[1]]}, " +
-            f"{loc[2]} step(s) to {abb_to_full[loc[0]]} by sea")
+        return (
+            f"{loc[3]} step(s) to {abb_to_full[loc[1]]}, "
+            + f"{loc[2]} step(s) to {abb_to_full[loc[0]]} by sea"
+        )
 
     # travelling by land
     # between a city and crossroads
@@ -668,5 +677,7 @@ def locstr(location, offshore, unflipped):
             return f"{loc[2]} step(s) {direction} of {abb_to_full[other]}"
 
     # no crossroads involved
-    return (f"{loc[3]} step(s) to {abb_to_full[loc[1]]}, " +
-        f"{loc[2]} step(s) to {abb_to_full[loc[0]]}")
+    return (
+        f"{loc[3]} step(s) to {abb_to_full[loc[1]]}, "
+        + f"{loc[2]} step(s) to {abb_to_full[loc[0]]}"
+    )
