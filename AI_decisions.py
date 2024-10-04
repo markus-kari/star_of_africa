@@ -268,7 +268,7 @@ def choose_city(destination, loc_strs, unflipped, money):
         distances = []
         for a in loc_strs:
             loc_str = re.split(r"-", a)
-            if len(loc_str) > 1:
+            if len(loc_str) > 1 or not unflipped[map.abbs.index(a)]:
                 distances.append(np.inf)
             elif money == 0:
                 distances.append(map.expected_time(money)[loc_str[0]][0])
