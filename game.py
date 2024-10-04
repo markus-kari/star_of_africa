@@ -364,6 +364,8 @@ class Game:
                 result = "sea_forced"
             else:
                 player.money -= 100
+        elif result == "air":
+            player.money -= 300
         return result
 
     def AI_movement_decision(self, player, decision):
