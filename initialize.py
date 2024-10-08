@@ -42,13 +42,13 @@ def init_human(elimination=True):
                             players.append(player.Player(sample_names[x], 1, "Tan"))
                             break
                         case "2":
-                            players.append(player.Player(sample_names[x], 2, "Cai"))
+                            players.append(player.Player(sample_names[x], 1, "Cai"))
                             break
                         case "3":
-                            players.append(player.Player(sample_names[x], 3, "Tan"))
+                            players.append(player.Player(sample_names[x], 2, "Cai"))
                             break
                         case "4":
-                            players.append(player.Player(sample_names[x], 1, "Cai"))
+                            players.append(player.Player(sample_names[x], 3, "Tan"))
                             break
                         case _:
                             print("Write a number between 0 and 4!")
