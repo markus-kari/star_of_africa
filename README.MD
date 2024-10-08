@@ -7,11 +7,6 @@ As the game is text-based, the project also includes a picture of the gameboard,
 - Python 3.12
 - Numpy (an older version will do)
 
-## Install
-Using pip:
-    pip install star_of_africa@git+https://github.com/markus-kari/star_of_africa
-and you're good to go!
-
 ## Usage
 The game can be played either by humans, by AI or with both! For a game involving humans, run h_game.py . The game can involve AI but it doesn't have to. For a game involving only AIs, run ai_game.py .
 
