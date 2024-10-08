@@ -102,17 +102,17 @@ class Player:
             air: player can move by plane
         """
         possible = []
-        location = re.split(r"-", self.location)
+        loc = re.split(r"-", self.location)
         # if the player is in a city
-        if len(location) == 1 and "nd" not in location[0]:
+        if len(loc) == 1 and "nd" not in loc[0]:
             # if token has not been flipped
-            if unflipped[map.abbs.index(location[0])]:
+            if unflipped[map.abbs.index(loc[0])]:
                 possible.append("flip")
-            if map.land_routes[location[0]]:
+            if map.land_routes[loc[0]]:
                 possible.append("land")
-            if map.sea_routes[location[0]]:
+            if map.sea_routes[loc[0]]:
                 possible.append("sea")
-            if map.air_routes[location[0]] and self.money >= 300:
+            if map.air_routes[loc[0]] and self.money >= 300:
                 possible.append("air")
         elif self.offshore:
             possible.append("sea")
