@@ -387,7 +387,7 @@ class Game:
 
         Returns None
         """
-        # time.sleep(1)
+        time.sleep(3)
         if decision == "flip":
             if self.human_game:
                 print(f"{player.name} is trying to flip a token.")
