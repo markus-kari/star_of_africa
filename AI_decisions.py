@@ -116,25 +116,19 @@ def choose_action_token(options, loc, unflipped, money):
     """
 
     def sea_coeff(money):
-        if money == 0:
-            return 0
-        if money == 100:
-            return 7
-        if money == 200:
-            return 4
-        if money == 300:
+        if money in [100, 200]:
             return 1
         return 0
 
     def air_coeff(money):
         if money == 300:
-            return 10
-        if money == 400:
             return 6
-        if money == 500:
+        if money == 400:
             return 4
-        if money < 800:
+        if money <= 900:
             return 2
+        if money <= 1200:
+            return 1
         return 0
 
     if money:
@@ -158,23 +152,11 @@ def choose_action_token(options, loc, unflipped, money):
             move_options = map.sea_routes[loc]
             compare = []
             for a in move_options:
-                new_loc = loc + "-" + a[0] + "-" + str(1) + "-" + str(a[1] - 1)
-                # poor is False so that this would not get stuck!
-                if index == 1 and transport_times[0][0] < 13:
-                    tester = np.array(
-                        closest_token_location(new_loc, unflipped, poor=False)
-                    )
-                else:
-                    tester = np.array(
-                        closest_token_location(new_loc, unflipped, poor)
-                    )
-                # this condition is to not make it get stuck!
-                if not (
-                    index == 1
-                    and transport_times[0][0] - 2 == tester[0]
-                    and transport_times[0][0] < 13
-                ):
-                    tester += sea_coeff(money)
+                new_loc = loc + "-" + a[0] + "-" + str(1) + "-" + str(a[1] - 1)           
+                tester = np.array(
+                    closest_token_location(new_loc, unflipped, poor)
+                )               
+                tester += sea_coeff(money)
                 compare.append(list(tester))
             transport_times[index] = min(compare)
         # air
