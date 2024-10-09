@@ -6,6 +6,7 @@ if __name__ == "__main__":
     no_games = 1000
     elimination = True
     turns = 0
+    horseshoe_winners = 0
     t = time.time()
     for x in range(no_games):
         random.seed(x)
@@ -17,9 +18,12 @@ if __name__ == "__main__":
             #with open("locations.txt", "a") as file:
             #    file.write(f"{msg}\n")
         turns += game.turn_no
+        if game.winner.has_horseshoe:
+            horseshoe_winners += 1
         #with open("statistics.txt", "a") as file:
         #    file.write(
         #        f"Winner was: {game.winner.name}. Game lasted {game.turn_no} turns.\n"
         #    )
     print(f"It took {round(time.time()-t, 3)} seconds to run this.")
     print(f"On average it took {turns/no_games} turns.")
+    print(f"{horseshoe_winners / no_games * 100} % of the winners had a horseshoe.")
