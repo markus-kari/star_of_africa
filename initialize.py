@@ -80,9 +80,9 @@ def init_AI(elimination=True):
 
     players = [
         player.Player("Amy", 1, "Cai"),
-        player.Player("Brook", 1, "Tan"),
-        player.Player("Connor", 2, "Cai"),
-        player.Player("David", 3, "Tan"),
+        player.Player("Bea", 1, "Tan"),
+        player.Player("Cory", 2, "Cai"),
+        player.Player("Dave", 3, "Tan"),
     ]
     random.shuffle(players)
     return game.Game(players, False, elimination)
