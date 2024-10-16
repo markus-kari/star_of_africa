@@ -17,7 +17,7 @@ def init_human(elimination=True):
             break
         print("The amount of players must be between 1 and 6!")
     players = []
-    sample_names = ["Amy", "Brook", "Connor", "David", "Emma", "Felix"]
+    sample_names = ["Amy", "Bea", "Cory", "Dave", "Emma", "Fox"]
     for x in range(no_players):
         while True:
             decision = input(f"\nIs the player {x+1} a (h)uman or a (c)omputer? ")
