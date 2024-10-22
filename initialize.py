@@ -1,6 +1,8 @@
 import random
 import player, game
 
+sample_names = ["Amy", "Bea", "Cory", "Dave", "Emma", "Fox"]
+
 def init_human(elimination=True):
     """
     Initializes the game.
@@ -17,7 +19,6 @@ def init_human(elimination=True):
             break
         print("The amount of players must be between 1 and 6!")
     players = []
-    sample_names = ["Amy", "Bea", "Cory", "Dave", "Emma", "Fox"]
     for x in range(no_players):
         while True:
             decision = input(f"\nIs the player {x+1} a (h)uman or a (c)omputer? ")
@@ -79,10 +80,10 @@ def init_AI(elimination=True):
     """Initializes the game when there are only AI players."""
 
     players = [
-        player.Player("Amy", 1, "Cai"),
-        player.Player("Bea", 1, "Tan"),
-        player.Player("Cory", 2, "Cai"),
-        player.Player("Dave", 3, "Tan"),
+        player.Player(sample_names[0], 1, "Cai"),
+        player.Player(sample_names[1], 1, "Tan"),
+        player.Player(sample_names[2], 2, "Cai"),
+        player.Player(sample_names[3], 3, "Tan"),
     ]
     random.shuffle(players)
     return game.Game(players, False, elimination)
