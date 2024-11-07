@@ -1,29 +1,28 @@
 import time
 import random
 import initialize
+import csv
+import numpy as np
 
 if __name__ == "__main__":
-    no_games = 1000
+    # change this variable for different amount of games
+    no_games = 10**3
+    # change this variable if you don't want the elimination rules on
     elimination = True
-    turns = 0
-    horseshoe_winners = 0
-    t = time.time()
+
+    t = time.time()  
+    fieldnames = ['Winner', 'Turns', 'Horseshoe winner', 'Star location']      
+    data = np.empty([no_games, len(fieldnames)], dtype=object)
     for x in range(no_games):
         random.seed(x)
         game = initialize.init_AI(elimination)
-        #with open("locations.txt", "a") as file:
-        #    file.write(f"\nGame {x}:\n")
         while game.winner is None:
             msg = game.play()
-            #with open("locations.txt", "a") as file:
-            #    file.write(f"{msg}\n")
-        turns += game.turn_no
-        if game.winner.has_horseshoe:
-            horseshoe_winners += 1
-        #with open("statistics.txt", "a") as file:
-        #    file.write(
-        #        f"Winner was: {game.winner.name}. Game lasted {game.turn_no} turns.\n"
-        #    )
+        data[x] = [game.winner.name, game.turn_no, game.winner.has_horseshoe, game.tokens.index(7)]
+    with open("statistics.csv", "w", newline='') as file:
+        header_writer = csv.DictWriter(file, fieldnames)
+        header_writer.writeheader()
+        writer = csv.writer(file)
+        for row in data:
+            writer.writerow(row)
     print(f"It took {round(time.time()-t, 3)} seconds to run this.")
-    print(f"On average it took {turns/no_games} turns.")
-    print(f"{horseshoe_winners / no_games * 100} % of the winners had a horseshoe.")
