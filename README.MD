@@ -1,11 +1,14 @@
 # Star of Africa
-The Star of Africa is a Python text-based version of the most famous board game of Finland (Afrikan tähti). It can be played by both humans and AIs!
+The Star of Africa is a Python text-based version of the most famous board game of Finland (Afrikan tähti). It can be played by both humans and AIs! The games AI play can also be analysed!
 
-As the game is text-based, the project also includes a picture of the gameboard, which makes it easier to understand what's going on. There will be a separate txt file explaining the rules (will come later).
+As the game is text-based, the project also includes a picture of the gameboard, which makes it easier to understand what's going on. There is also a file called **analysis.pdf**, which includes both the rules and an analysis of the game.
 
 ## Dependencies
 - Python 3.12
 - Numpy (an older version will do)
+(For analysing the game:)
+- Pandas
+- Matplotlib
 
 ## Usage
 The game can be played either by humans, by AI or with both! For a game involving humans, run h_game.py . The game can involve AI but it doesn't have to. For a game involving only AIs, run ai_game.py .
@@ -16,7 +19,7 @@ The game can involve 1-6 players, humans or AIs. For each player you need to def
 The game asks which action the player wants to take (if multiple available) and where to move if moving. The actions the AI will take are also described. The game continues as per rules, and as the game ends, the program tells which player won and how many turns the game took.
 
 ### Game with AIs only
-Running the file will make AIs play the game several times. The number of games can be changed (governed by the variable no_games at the top). Each game will be played by four AIs, and each AI has a unique type. The result of each game is saved in a file statistics.txt , which says the winner of the game and the duration of the game. Each turn is also saved in a file locations.txt . At the end the program will write how long it took to run it.
+Running the file will make AIs play the game several times. The number of games can be changed (governed by the variable no_games at the top). Each game will be played by four AIs, and each AI has a unique type. The data of each game is saved into statistics.csv. The games can be then analysed with analyse.py.
 
 The AIs have four types:
 1) Targets always the closest token and starts in Cairo. In the AI game its name is Amy.
